@@ -1,20 +1,24 @@
-<%= simple_form_for @project do |f| %>
-    <% if @project.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@project.errors.count, "error") %>
-            prohibited this project from being saved:</h2>
-          <ul>
-            <% @project.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+<div class = "row">
+  <div class = "col-sm-6 col-md-6">
+    <%= simple_form_for @project do |f| %>
+        <% if @project.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@project.errors.count, "error") %>
+                prohibited this project from being saved:</h2>
+              <ul>
+                <% @project.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <p>
+          <%= f.input :name %>
+        </p>
+        <p>
+          <%= f.input :description %>
+        </p>
+        <%= f.button :submit, class: "btn-primary" %>
     <% end %>
-    <p>
-      <%= f.input :name %>
-    </p>
-    <p>
-      <%= f.input :description %>
-    </p>
-    <%= f.button :submit, class: "btn-primary" %>
-<% end %>
+  </div>
+</div>
