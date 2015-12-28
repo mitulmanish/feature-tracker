@@ -5,6 +5,24 @@ RSpec.feature "create projects" do
     visit "/"
     click_link "New Project"
   end
+  scenario "with valid project name and desription" do
+    fill_in "Name", with: "mitulManish"
+    fill_in "Description", with: "Description of my project.Coolest description ever"
+    click_button "Create Project"
+    expect(page).to have_content "Project has been created"
+    click_link "mitulManish"
+    expect(page).to have_content("mitulManish")
+    expect(page).to have_content("Description of my project.Coolest description ever")
+  end
+  scenario "creating a project with valid attributes and then deleting the project" do
+    fill_in "Name", with: "mitulManish"
+    fill_in "Description", with: "Description of my project.Coolest description ever"
+    click_button "Create Project"
+    expect(page).to have_content "Project has been created"
+    click_link "mitulManish"
+    click_link "Delete Project"
+    expect(page).to have_no_content("mitulManish")
+  end
 
   scenario "with valid attributes" do
     fill_in "Name", with: "Project"
@@ -73,7 +91,6 @@ RSpec.feature "create projects" do
       expect(page).to have_no_content("Atlassian11")
       expect(page.current_url).to eq("http://www.example.com/projects")
     end
-
   end
   RSpec.describe ProjectsController, type: :controller do
     it "handles a missing project correctly" do
