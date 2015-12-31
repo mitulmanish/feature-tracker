@@ -6,6 +6,7 @@
 @import "font-awesome";
 @import "projects";
 @import "responsive";
+@import "tickets";
 body {
   padding-top: 70px;
 }
@@ -56,6 +57,7 @@ a.delete {
     @extend .fa-trash;
   }
 }
+
 .alert{
   margin-top:10px;
 }
