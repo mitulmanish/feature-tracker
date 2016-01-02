@@ -1,2 +1,3 @@
 I m the samlple.
-Just testing the pull request feature in Hub
+Just testing the pull request feature in Hub.
+Testing the remote branch feature.
