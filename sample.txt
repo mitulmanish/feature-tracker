@@ -4,3 +4,4 @@ Testing the remote branch feature.
 more...
 abcd
 xyz
+testing fetch and rebase
