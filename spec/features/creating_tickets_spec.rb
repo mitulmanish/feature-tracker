@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Users can create new tickets" do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {FactoryGirl.create(:user, :admin)}
   before do
     login_as(user)
     project = FactoryGirl.create(:project, name: "Slack", description: "Integration of slack with rails 4")
