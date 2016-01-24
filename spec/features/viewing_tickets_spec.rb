@@ -16,8 +16,6 @@ RSpec.feature "Users can view tickets" do
     visit project_ticket_path(mandrill, ticket)
   end
    scenario "for a given project" do
-     #
-     #
      expect(page).to have_content("No sender field available")
      expect(page).to_not have_content("trailing --- in the database")
      within "#attributes" do
