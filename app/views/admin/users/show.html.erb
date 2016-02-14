@@ -1,8 +1,17 @@
 <header>
-  <h4><%=  @user.email %> </h4>
+  <% if @user.admin? %>
+    <h4><%=  @user.email %>(Admin)</h4>
+  <% else %>
+    <h4><%=  @user.email %> </h4>
+  <% end %>
   <ul class = "actions">
     <li>
       <%= link_to "Edit", edit_admin_user_path(@user), class: "edit" %>
+      <% if @user.archived_at.blank? %>
+          <%= link_to "Archive", [:archive, :admin, @user], method: :patch, data: { confirm: "Are you sure you want to archive this user? " }, class: "delete" %>
+      <% else  %>
+          <%= link_to "UnArchive", [:unarchive, :admin, @user], method: :patch, data: { confirm: "Are you sure you want to un archive this user? " }, class: "new" %>
+      <% end  %>
     </li>
   </ul>
 </header>
